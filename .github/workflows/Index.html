@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fortune Markets.ID</title>
+
+<style>
+
+body{
+background:#0d001a;
+font-family:Arial;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+.logo{
+width:320px;
+margin-bottom:25px;
+}
+
+.box{
+background:#1b0033;
+padding:30px;
+border-radius:12px;
+width:320px;
+margin:auto;
+box-shadow:0 0 20px #6a00ff;
+}
+
+input{
+width:90%;
+padding:12px;
+margin:10px;
+border-radius:8px;
+border:none;
+}
+
+button{
+background:#7a1cff;
+border:none;
+padding:12px 25px;
+color:white;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+}
+
+button:hover{
+background:#9b4dff;
+}
+
+#hasil{
+margin-top:15px;
+color:#00ff9d;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<img src="logo.jpg" class="logo">
+
+<div class="box">
+
+<h3>Email Ress</h3>
+<input type="email" id="email" placeholder="Masukkan email">
+
+<h3>Jumlah Ress</h3>
+<input type="number" id="jumlah" placeholder="Masukkan jumlah">
+
+<button onclick="kirim()">Kirim</button>
+
+<div id="hasil"></div>
+
+</div>
+
+<script>
+
+function kirim(){
+
+let email = document.getElementById("email").value;
+let jumlah = document.getElementById("jumlah").value;
+
+if(email == "" || jumlah == ""){
+document.getElementById("hasil").innerHTML = "Isi semua dulu!";
+}
+
+else{
+
+let subject = "Fortune Markets.ID";
+let pesan = "Jumlah Ress: " + jumlah;
+
+let link = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(pesan);
+
+window.location.href = link;
+
+document.getElementById("hasil").innerHTML = "Sukses";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
